@@ -7,8 +7,14 @@ variable "image" {
       prod = "nodered/node-red:latest-minimal"
     }
     influxdb = {
-      dev  = "quay.io/influxdb/influxdb:v2.0.2"
-      prod = "quay.io/influxdb/influxdb:v2.0.2"
+      # dev  = "quay.io/influxdb/influxdb:v2.0.2"
+      dev = "influxdb:2.0"
+      # prod = "quay.io/influxdb/influxdb:v2.0.2"
+      prod = "influxdb:2.0"
+    }
+    grafana = {
+      dev  = "grafana/grafana"
+      prod = "grafana/grafana:7.3.0"
     }
   }
 }

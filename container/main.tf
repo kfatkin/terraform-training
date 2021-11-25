@@ -27,4 +27,8 @@ resource "docker_volume" "container_volume" {
   lifecycle {
     prevent_destroy = false
   }
+  provisioner "local-exec" {
+    when = destroy
+    command = "mkdir ${path.cwd}/../backup"
+  }
 }
