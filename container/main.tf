@@ -17,6 +17,13 @@ resource "docker_container" "app_container" {
     container_path = var.container_path_in
     volume_name    = docker_volume.container_volume[count.index].name
   }
+  provisioner "local-exec" {
+    command = "echo ${self.name}: ${self.ip_address}:${self.ports[count.index]["external"]} >> ${path.cwd}"
+  }
+  provisioner "local-exec" {
+    when    = destroy
+    command = "rm -f ${path.cwd}/containers.txt"
+  }
 }
 
 
@@ -28,7 +35,13 @@ resource "docker_volume" "container_volume" {
     prevent_destroy = false
   }
   provisioner "local-exec" {
-    when = destroy
-    command = "mkdir ${path.cwd}/../backup"
+    when       = destroy
+    command    = "mkdir ${path.cwd}/../backup"
+    on_failure = continue
   }
+  # provisioner "local-exec" {
+  #   when       = destroy
+  #   command    = "sudo tar -czvf ${path.cwd}/../backup/${self.name}.tar.gz ${self.mountpoint}/"
+  #   on_failure = fail
+  # }
 }
