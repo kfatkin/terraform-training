@@ -1,1 +1,14 @@
-containers.txt
+.idea
+.vscode
+*.pem
+*.ppk
+*.tfstate
+*.tfstate.backup
+*.terraform.lock.hcl
+*.swp
+.terraform/
+.terraform.tfstate.lock.info
+**/*/*.tfstate
+**/*/*.tfstate.backup
+**/*/*.terraform.lock.hcl
+.DS_Store
