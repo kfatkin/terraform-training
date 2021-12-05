@@ -9,6 +9,7 @@ terraform {
 }
 
 resource "aws_kms_key" "terraform_kms_key" {
-  provider    = aws.target
-  description = "This key is used to encrypt bucket objects"
+  provider     = aws.target
+  multi_region = false
+  description  = "This key is used to encrypt bucket objects"
 }

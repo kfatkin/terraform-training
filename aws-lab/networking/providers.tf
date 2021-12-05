@@ -1,3 +1,4 @@
+
 terraform {
   required_providers {
     aws = {
@@ -11,4 +12,3 @@ provider "aws" {
   region  = var.aws_region
   profile = var.target_account
 }
-
