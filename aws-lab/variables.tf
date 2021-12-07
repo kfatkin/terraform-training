@@ -1,3 +1,5 @@
+# ---- root/variables.tf
+
 variable "aws_region" {
   description = "AWS Region"
   type        = string
@@ -7,4 +9,8 @@ variable "aws_region" {
 variable "target_account" {
   description = "AWS Profile"
   default     = "kdfatkin"
+}
+
+variable "access_ip" {
+  type = string
 }

@@ -36,3 +36,9 @@ variable "max_subnets" {
   type = number
 
 }
+variable "access_ip" {
+  type = string
+
+}
+
+variable "security_groups" {}
