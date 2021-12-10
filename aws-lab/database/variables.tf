@@ -1,5 +1,16 @@
 # --- database/variables.tf
 
+variable "aws_region" {
+  description = "AWS Region"
+  type        = string
+  default     = "us-east-2"
+}
+
+variable "target_account" {
+  description = "AWS Profile"
+  default     = "kdfatkin"
+}
+
 variable "db_storage" {}
 variable "db_engine_version" {}
 variable "db_instance_class" {}

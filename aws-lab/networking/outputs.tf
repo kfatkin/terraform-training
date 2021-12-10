@@ -2,3 +2,12 @@
 output "vpc_id" {
   value = aws_vpc.mtc_vpc.id
 }
+
+output "db_subnet_group_name" {
+  value = aws_db_subnet_group.mtc_rds_subnet_group.*.name
+}
+
+output "db_security_group" {
+  #value = [for x in aws_security_group.mtc_sg : x.id]
+  value = [aws_security_group.mtc_sg["rds"].id]
+}
