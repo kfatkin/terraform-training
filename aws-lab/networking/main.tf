@@ -122,6 +122,8 @@ resource "aws_security_group" "mtc_sg" {
 }
 
 resource "aws_db_subnet_group" "mtc_rds_subnet_group" {
+  provider   = aws.target
+  count      = var.db_subnet_group ? 1 : 0
   name       = "mtc_rds_subnet_group"
   subnet_ids = aws_subnet.mtc_private_subnet.*.id
   tags = {
